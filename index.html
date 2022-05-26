@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estiloo.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+        </style>
+    <title>Document</title>
+       
+</head>
+<body>
+<div class="cuerpo">
+   <div class="cuadro">
+    <div class="formulario">
+     <form id="form">
+                 <div>
+                     <p id="formu">Formulario</p>
+                 </div>
+                <div class="fondo">
+                    <input id="nombre" name="namee" type="text" placeholder="Nombre" required>
+                </div>
+                <div class="fondo">
+                    <input id="apellido" name="username" type="text" placeholder="Apellido" required>
+                </div>
+                <div class="fondo">
+                    <input id="direccion" name="direction" type="text" placeholder="Direccion">
+                </div>
+                <div class="fondo">
+                    <textarea id="descripcion" name="description" type="text" placeholder="Descripcion"></textarea>
+                </div>
+                <div class="fondo">
+                    <button id="boton">Agregar</button>
+                </div>            
+     </form>
+     </div>
+      <div class="container-tabla">
+         <table id="tabla">
+               <tr>
+                <th>nombre</th>
+                <th>apellido</th>
+                <th>direccion</th>
+                <th>descripcion</th>
+                <th>borrar</th>
+                </tr>
+            </table>
+      </div>
+   </div>
+</div> 
+<script>
+      
+       const form = document.getElementById("form");
+       form.addEventListener("submit", function(evento){
+
+        evento.preventDefault();
+        let inputs = new FormData(form);
+        creraFila(inputs)
+    //eliminar o resetear el formulario
+        form.reset() 
+      }); 
+         
+            
+        function creraFila(inputs){
+            let tablaFila = document.getElementById("tabla");
+            let fila = tablaFila.insertRow(-1);
+    
+            let bloqueFila = fila.insertCell(0);
+            bloqueFila.textContent=inputs.get("namee");
+    
+             bloqueFila = fila.insertCell(1);
+            bloqueFila.textContent=inputs.get("username");
+    
+            bloqueFila = fila.insertCell(2);
+            bloqueFila.textContent=inputs.get("direction");
+             
+             bloqueFila = fila.insertCell(3);
+             bloqueFila.textContent=inputs.get("description");
+
+            let bloqueFilaEliminar = fila.insertCell(4);
+            let botonEliminar = document.createElement("button");
+            console.log(botonEliminar)
+            botonEliminar.textContent = "Eliminar";
+            bloqueFilaEliminar.appendChild(botonEliminar);
+            botonEliminar.addEventListener("click", (evento) =>{
+
+                if (confirm("Seguro Que Desea Eliminar")){
+                evento.target.parentNode.parentNode.remove()
+                } 
+                
+            })  
+            
+        }
+</script>
+
+
+</body>
+</html>
