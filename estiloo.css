@@ -106,7 +106,7 @@ table{
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 td{
-    padding: 5px;
+   padding: 5px;
     -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 	        animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
             color: var(--texto-color);
@@ -114,7 +114,7 @@ td{
             font-size: 12px;
             background-color: #ffffff;
             border-bottom: 1px solid rgba(226, 226, 226, 0.561);
-	  text-align:center;
+            text-align: center;
 }
 th{ 
     background-color: var(--color-tema);
